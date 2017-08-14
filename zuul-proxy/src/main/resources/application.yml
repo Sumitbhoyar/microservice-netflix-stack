@@ -1,0 +1,17 @@
+server:
+  port: 8003
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8001/eureka}
+
+spring:
+  application:
+    name: zuul-proxy
+
+zuul:
+  routes:
+    account-service:
+      path: /account/**
+      serviceId: ACCOUNT
