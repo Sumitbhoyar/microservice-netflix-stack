@@ -1,0 +1,18 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+#          uri: file://${user.home}/application-config
+          uri: https://github.com/piomin/sample-config-repo.git
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8001/eureka}
+

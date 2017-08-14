@@ -1,0 +1,9 @@
+server:
+  port: 8001
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+    register-with-eureka: false
+    fetch-registry: false

@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8001/eureka}
+
+spring:
+  application:
+    name: account
+  cloud:
+    config:
+      name: account
+      discovery:
+        service-id: config
+        enabled: true
+      profile: dev
+      allow-override: false
+management:
+  security:
+    enabled: false
