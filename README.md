@@ -144,5 +144,47 @@ http://www.baeldung.com/spring-rest-with-zuul-proxy
 https://spring.io/guides/gs/routing-and-filtering/
 
 
+**Hystrix Circuit Breaker**
+-------------------
+In the field of electronics, a circuit breaker is an automatically operated electrical switch designed to protect an electrical circuit from damage caused by overcurrent/overload or short circuit.
 
+In the field of software development, a circuit breaker is designed to automatically detect failures to access remote (or local) services and provide fallback mechanisms where needed. 
+
+1-------------2----------3
+ \------------4----------5
+
+If service 1 fails then all other services will fail too. Additional risk is that Service 2 and 4 will keep sending requests to service 1, so it will be completely overloaded and will never be able to recover. The circuit breaker pattern addresses this problem. Just like an electrical switch, when closed electrons (requests) can flow through it, when open the flow is stopped. Hystrix can wrap methods with circuit breaker that uses the following logic :
+
+1. By default the circuit is closed and the original method is executed.
+2. The original method throws an exception, the fallback is executed.
+3. Error rate hits the threshold, the circuit opens.
+4. Until the circuit is open the original method is not executed anymore, only the fallback.
+5. After a predefined amount of time the circuit is closed, and the flow starts from the beginning.
+
+Hystrix is a properly written circuit breaker.
+
+**Configuration**
+
+1. Dependency> spring-cloud-starter-hystrix
+
+2. Add @EnableCircuitBreaker if there is no other circuit breaker than Hystrix, else @EnableHystrix.
+
+3. Making methods circuit-aware
+```java
+@HystrixCommand(fallbackMethod = "fallbackGetCustomer")
+public MessageWrapper<Customer> getCustomer(int id) {
+    discoveryClient.getNextServerFromEureka("notification-service", false)
+            .getCustomers();
+}
+ 
+public MessageWrapper<Customer> fallbackGetCustomer(int id, Throwable t) {
+    return new MessageWrapper<>(null, "Fallback method handled exception for id " + id + ". The original exception was " + t.toString());
+}
+```
+
+**References**
+
+https://blog.de-swaef.eu/the-netflix-stack-using-spring-boot-part-2-hystrix/
+
+https://exampledriven.wordpress.com/2016/07/05/spring-cloud-hystrix-example/
 
