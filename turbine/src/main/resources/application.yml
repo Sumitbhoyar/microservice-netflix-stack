@@ -1,0 +1,16 @@
+server:
+  port: 8007
+
+spring:
+  application:
+    name: turbine
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8001/eureka}
+
+turbine:
+  clusterNameExpression: new String("default")
+  appConfig: dashboard
+  combineHostPort: true

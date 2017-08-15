@@ -15,6 +15,7 @@
         <module>service</module>
         <module>client</module>
         <module>dashboard</module>
+	<module>turbine</module>
     </modules>
 
 </project>
