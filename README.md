@@ -2,12 +2,14 @@ microservice-netflix-stack
 ============================
 
 **Discovery Server**
+--------------------
 
 Eureka is a REST (Representational State Transfer) based service that is primarily used in the AWS cloud for locating services for the purpose of load balancing and failover of middle-tier servers. It allows services to find and communicate with each other without hard coding hostname and port. 
 
 https://github.com/Sumitbhoyar/notes/blob/master/Eureka.adoc
 
 **Feign Client**
+----------------
 
 a declarative HTTP client developed by Netflix.
 
@@ -34,6 +36,7 @@ public interface VersionResource {
 Spring Feign integration supports integration with service discovery clients like Eureka, Consul or ZooKeeper.
 
 **Spring Cloud Config**
+-----------------------
 
 Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system. With the Config Server you have a central place to manage external properties for applications across all environments. 
 
