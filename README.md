@@ -131,5 +131,14 @@ ribbon.eureka.enabled=true
 
 Zuul provides some default filters as well as allows to add custom filters to interccept the request for authentication, changing/adding request header etc.
 
+**References:**
+
+https://dzone.com/articles/spring-cloud-netflix-zuul-edge-serverapi-gatewayga
+
+http://www.baeldung.com/spring-rest-with-zuul-proxy
+
+https://spring.io/guides/gs/routing-and-filtering/
+
+
 
 
