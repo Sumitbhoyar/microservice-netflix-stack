@@ -49,7 +49,10 @@ Need to create a seperate project which will act as **Config Server**.
 2. Add @EnableConfigServer on @SpringBootApplication
 
 3. Specify the location of git repository in application.properties where config files are placed.
+
+```
 spring.cloud.config.server.git.uri=https://github.com/piomin/sample-config-repo.git
+```
 
 **Client application** configuration
 
