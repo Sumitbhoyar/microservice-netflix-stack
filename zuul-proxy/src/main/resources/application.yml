@@ -14,4 +14,4 @@ zuul:
   routes:
     account-service:
       path: /account/**
-      serviceId: ACCOUNT
+      serviceId: account

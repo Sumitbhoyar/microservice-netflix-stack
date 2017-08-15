@@ -13,7 +13,6 @@ spring:
         service-id: config
         enabled: true
       profile: dev
-      allow-override: false
 management:
   security:
     enabled: false

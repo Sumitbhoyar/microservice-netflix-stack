@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/version")
 public class ClientController {
     @Autowired
-    private VersionResource versionResource;
+    private VersionService versionService;
 
     @GetMapping
     public String getVersion(){
-        return versionResource.version();
+        return versionService.version();
     }
 }

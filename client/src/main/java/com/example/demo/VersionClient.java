@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @FeignClient("account")
-public interface VersionResource {
+public interface VersionClient {
     @RequestMapping(value = "/version", method = GET)
     String version();
 }

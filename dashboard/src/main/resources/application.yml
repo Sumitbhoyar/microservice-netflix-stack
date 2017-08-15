@@ -1,0 +1,11 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: dashboard
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8001/eureka}
