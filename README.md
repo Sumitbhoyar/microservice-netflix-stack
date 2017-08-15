@@ -108,7 +108,9 @@ Zuul is a JVM based router and server side load balancer by Netflix.
 
 1. dependency > spring-cloud-starter-zuul
 
-2. application.yml
+2. Add @EnableZuulProxy on @SpringBootApplication. If you are using Eureka then add @EnableEurekaClient too.
+
+3. application.yml
 ```
 zuul:
   routes:
