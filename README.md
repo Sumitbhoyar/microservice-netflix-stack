@@ -92,5 +92,42 @@ http://www.baeldung.com/spring-cloud-configuration
 
 https://spring.io/guides/gs/centralized-configuration/
 
-
 http://localhost:8003/account/version
+
+**Zuul Proxy**
+--------------
+
+The Cross-Origin Resource Sharing (CORS) mechanism gives web servers cross-domain access controls, which enable secure cross-domain data transfers. The Cross-Origin Resource Sharing standard works by adding new HTTP headers that allow servers to describe the set of origins that are permitted to read that information using a web browser.
+
+UI application may need to proxy calls to one or more back end services. UI application cannot call multiple domain due to Same Origin Policy restriction of the browser.
+Zuul provides work around CORS and the Same Origin Policy restriction of the browser and allow the UI to call the API even though they don’t share the same origin. 
+This feature is useful for a user interface to proxy to the backend services it requires, avoiding the need to manage CORS and authentication concerns independently for all the backends.
+Zuul is a JVM based router and server side load balancer by Netflix.
+
+**Configuration**
+
+1. dependency > spring-cloud-starter-zuul
+
+2. application.yml
+```
+zuul:
+  routes:
+    foos:
+      path: /foos/**
+      url: http://localhost:8081/spring-zuul-foos-resource/foos
+    account-service:
+      path: /account/**
+      serviceId: ACCOUNT
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8001/eureka}
+      
+ribbon.eureka.enabled=true
+```
+
+Zuul provides some default filters as well as allows to add custom filters to interccept the request for authentication, changing/adding request header etc.
+
+
+
