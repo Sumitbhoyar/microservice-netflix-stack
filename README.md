@@ -150,8 +150,10 @@ In the field of electronics, a circuit breaker is an automatically operated elec
 
 In the field of software development, a circuit breaker is designed to automatically detect failures to access remote (or local) services and provide fallback mechanisms where needed. 
 
+```
 1-------------2----------3
- \------------4----------5
+ \____________4__________5
+```
 
 If service 1 fails then all other services will fail too. Additional risk is that Service 2 and 4 will keep sending requests to service 1, so it will be completely overloaded and will never be able to recover. The circuit breaker pattern addresses this problem. Just like an electrical switch, when closed electrons (requests) can flow through it, when open the flow is stopped. Hystrix can wrap methods with circuit breaker that uses the following logic :
 
