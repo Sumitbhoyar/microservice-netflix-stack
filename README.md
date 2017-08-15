@@ -7,7 +7,9 @@ microservice-netflix-stack
 Eureka is a REST (Representational State Transfer) based service that is primarily used in the AWS cloud for locating services for the purpose of load balancing and failover of middle-tier servers. It allows services to find and communicate with each other without hard coding hostname and port. 
 
 References: 
+
 https://github.com/Sumitbhoyar/notes/blob/master/Eureka.adoc
+
 http://www.baeldung.com/spring-cloud-netflix-eureka
 
 **Feign Client**
