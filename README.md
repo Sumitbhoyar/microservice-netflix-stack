@@ -6,7 +6,9 @@ microservice-netflix-stack
 
 Eureka is a REST (Representational State Transfer) based service that is primarily used in the AWS cloud for locating services for the purpose of load balancing and failover of middle-tier servers. It allows services to find and communicate with each other without hard coding hostname and port. 
 
+References: 
 https://github.com/Sumitbhoyar/notes/blob/master/Eureka.adoc
+http://www.baeldung.com/spring-cloud-netflix-eureka
 
 **Feign Client**
 ----------------
@@ -22,8 +24,6 @@ Configuration
 2. @EnableFeignClients on @SpringBootApplication
 
 
-
-
 Typical Feign looks like this
  ```java
 @FeignClient("account")
@@ -34,6 +34,17 @@ public interface VersionResource {
  ```
  
 Spring Feign integration supports integration with service discovery clients like Eureka, Consul or ZooKeeper.
+
+References:
+
+https://jmnarloch.wordpress.com/2015/08/19/spring-cloud-designing-feign-client/
+
+https://github.com/OpenFeign/feign
+
+http://www.baeldung.com/intro-to-feign
+
+https://exampledriven.wordpress.com/2016/07/01/spring-cloud-eureka-ribbon-feign-example/
+
 
 **Spring Cloud Config**
 -----------------------
@@ -72,8 +83,12 @@ spring.cloud.config.profile=dev
 
 3. Inject properties using @ConfigurationProperties or @Value("${…}")
 
-Reference: https://cloud.spring.io/spring-cloud-config/spring-cloud-config.html
+**Reference**: 
+https://cloud.spring.io/spring-cloud-config/spring-cloud-config.html
 
+http://www.baeldung.com/spring-cloud-configuration
+
+https://spring.io/guides/gs/centralized-configuration/
 
 
 http://localhost:8003/account/version
